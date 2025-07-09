@@ -86,7 +86,7 @@ class AutoEncoder(tf.keras.layers.Layer):
     # so we have now input_channels-16-32-64 then 64 - 32 -16
     # so we still need out_channels
 
-    self.decoder_layers.append(decoder_block(out_channels,kernel_size,batch_norm,final_activation))
+    self.decoder_layers.append(decoder_block(out_channels,kernel_size,False,final_activation))
 
     self.encoder=tf.keras.models.Sequential(self.encoder_layers)
     self.decoder=tf.keras.models.Sequential(self.decoder_layers)
