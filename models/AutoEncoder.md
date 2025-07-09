@@ -1,4 +1,4 @@
-# AutoEncoder Keras Custom Layer
+# Autoencoder with 1 Decoder as Keras Custom Layer
 
 This repository provides a custom **AutoEncoder** implementation in Keras using functional encoder and decoder blocks. The design allows high flexibility, supporting batch normalization, custom activations, kernel size validation, and adjustable filters.
 
