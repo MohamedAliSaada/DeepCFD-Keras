@@ -97,7 +97,6 @@ Decoder layers:
     - Activation
   Block 4:
     - Conv2DTranspose
-    - BatchNormalization
     - Activation
 ```
 
