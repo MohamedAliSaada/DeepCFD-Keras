@@ -1,4 +1,4 @@
-# Autoencoder with 3 Decoders as Keras Custom Layer
+# Autoencoder with 3 Decoders as Keras Custom Layer (double checked)
 
 This repository provides a custom **AutoEncoder3** implementation in Keras using functional encoder and decoder blocks. The architecture extends the traditional autoencoder to support **multiple decoders** (one for each output channel), which is particularly useful for multitarget regression or multi-output tasks such as fluid simulation, optical flow, or medical image reconstruction.
 
