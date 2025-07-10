@@ -253,20 +253,4 @@ if __name__ == "__main__":
   n=UNet()
   n.My_layers_is()
 
-lista =[1,2,3,'mohamed',5,3,6,"eisa"]
-       #     2               6
-id=[]
-befor_names=[]
-for i, intity in enumerate(lista):
-  if isinstance(intity, str):
-    id.append(i-1)
-
-for i, intity in enumerate(lista):
-  if i in id:
-    print(intity)
-    befor_names.append(intity)
-  else:
-    print(intity)
-
-befor_names
 
