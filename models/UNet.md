@@ -1,4 +1,4 @@
-# U-Net with Skip Connections as Keras Custom Layer
+# U-Net with Skip Connections as Keras Custom Layer (double checked)
 
 This repository provides a custom **UNet** implementation in Keras using functional encoder, decoder, and neck blocks. The architecture mimics the classical U-Net structure with skip connections, particularly useful for image segmentation, regression, or scientific modeling tasks (e.g., CFD, medical imaging).
 
