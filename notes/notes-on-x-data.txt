@@ -1,0 +1,37 @@
+# ============================================
+# Explanation of the three input channels in dataX (shape: Ns, 3, Nx, Ny)
+# ============================================
+
+# Channel 0: SDF from obstacle surface
+# -------------------------------------
+# This channel encodes the Signed Distance Function (SDF) from the shape of the obstacle inside the flow domain.
+# - Negative values: inside the obstacle.
+# - Zero: on the surface.
+# - Positive values: outside the obstacle (in fluid region).
+# Why it's useful:
+# => It provides precise geometric information about the obstacle's shape and distance from each point in the domain.
+# => Helps the model learn how flow behavior (velocity, pressure) changes relative to proximity to the object.
+# => Unlike a binary mask (0 or 1), SDF provides continuous values that enhance learning.
+
+# Channel 1: Flow region classification (multi-label)
+# ----------------------------------------------------
+# This is a categorical mask where each pixel represents a region type:
+# - E.g., inlet, outlet, obstacle, or fluid.
+# Why it's useful:
+# => Helps the model distinguish between functional areas in the domain (e.g., where fluid enters, exits, or is blocked).
+# => Allows the model to understand boundary conditions.
+# => Crucial for defining zones of influence and for distinguishing between different flow behaviors.
+
+# Channel 2: SDF from top/bottom boundaries
+# ------------------------------------------
+# This channel encodes the vertical distance from each point to the nearest horizontal wall (top or bottom).
+# Why it's useful:
+# => Top/bottom walls often apply no-slip conditions in CFD — fluid sticks to the wall.
+# => Flow speed and pressure are heavily influenced by wall proximity due to viscous boundary layers.
+# => This channel gives the model a sense of how close a point is to these fixed, global boundaries — even though they don’t change across samples.
+
+# Summary:
+# Each channel adds a different type of spatial or semantic information:
+# - Channel 0: object geometry (local, changing per sample).
+# - Channel 1: region type (semantic labels).
+# - Channel 2: proximity to domain borders (global, fixed).
