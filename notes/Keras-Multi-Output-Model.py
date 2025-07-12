@@ -54,5 +54,6 @@ history = model.fit(
     X,
     {'regression': y_regression, 'classification': y_class},
     epochs=10,
+    validation_split=0.2,
     batch_size=32
 )
