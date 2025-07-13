@@ -27,38 +27,36 @@ def decoder_block(x, skip, filters, kernel_size=3):
     return x
 
 
-def Unet_3(input_shape=(128, 128, 1)):
+def Unet(input_shape=(128, 128, 1)):
     inputs = Input(shape=input_shape)
 
     # Encoder
-    x, skip1 = encoder_block(inputs, 16)
-    x, skip2 = encoder_block(x, 32)
-    x, skip3 = encoder_block(x, 64)
+    x, skip1 = encoder_block(inputs, 16)   # -> (64x64)
+    x, skip2 = encoder_block(x, 32)        # -> (32x32)
+    x, skip3 = encoder_block(x, 64)        # -> (16x16)
 
     # Bottleneck
     x = layers.Conv2D(64, 3, padding='same')(x)
     x = layers.BatchNormalization()(x)
     x = layers.ReLU()(x)
 
-    # Decoder 1
+    # Decoder 1 - for u
     x1 = decoder_block(x, skip3, 64)
     x1 = decoder_block(x1, skip2, 32)
     x1 = decoder_block(x1, skip1, 16)
-    # Output: 1 channel for (u)
     outputs1 = layers.Conv2D(1, 1, activation='linear')(x1)
 
-    # Decoder 2
+    # Decoder 2 - for v
     x2 = decoder_block(x, skip3, 64)
-    x2 = decoder_block(x2 , skip2, 32)
-    x2 = decoder_block(x2 , skip1, 16)
-    # Output: 1 channel for (v)
+    x2 = decoder_block(x2, skip2, 32)
+    x2 = decoder_block(x2, skip1, 16)
     outputs2 = layers.Conv2D(1, 1, activation='linear')(x2)
 
-    # Decoder 3
+    # Decoder 3 - for p
     x3 = decoder_block(x, skip3, 64)
     x3 = decoder_block(x3, skip2, 32)
     x3 = decoder_block(x3, skip1, 16)
-    # Output: 1 channel for (p)
     outputs3 = layers.Conv2D(1, 1, activation='linear')(x3)
 
-    return Model(inputs, [outputs1,outputs2,outputs3], name='DeepCFD_U-Net')
+    return Model(inputs, [outputs1, outputs2, outputs3], name='DeepCFD_U-Net')
+
