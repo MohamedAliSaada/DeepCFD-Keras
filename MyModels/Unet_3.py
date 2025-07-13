@@ -42,22 +42,22 @@ def Unet_3(input_shape=(128, 128, 1)):
 
     # Decoder 1
     x1 = decoder_block(x, skip3, 64)
-    x1 = decoder_block(x, skip2, 32)
-    x1 = decoder_block(x, skip1, 16)
+    x1 = decoder_block(x1, skip2, 32)
+    x1 = decoder_block(x1, skip1, 16)
     # Output: 1 channel for (u)
     outputs1 = layers.Conv2D(1, 1, activation='linear')(x1)
 
     # Decoder 2
     x2 = decoder_block(x, skip3, 64)
-    x2 = decoder_block(x, skip2, 32)
-    x2 = decoder_block(x, skip1, 16)
+    x2 = decoder_block(x2 , skip2, 32)
+    x2 = decoder_block(x2 , skip1, 16)
     # Output: 1 channel for (v)
     outputs2 = layers.Conv2D(1, 1, activation='linear')(x2)
 
     # Decoder 3
     x3 = decoder_block(x, skip3, 64)
-    x3 = decoder_block(x, skip2, 32)
-    x3 = decoder_block(x, skip1, 16)
+    x3 = decoder_block(x3, skip2, 32)
+    x3 = decoder_block(x3, skip1, 16)
     # Output: 1 channel for (p)
     outputs3 = layers.Conv2D(1, 1, activation='linear')(x3)
 
