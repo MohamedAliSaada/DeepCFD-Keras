@@ -38,7 +38,7 @@ def Unet(input_shape=(172, 79, 3)):
     # ✅ Pad with value 10: [[2,2] height, [2,3] width]
     x = Lambda(lambda t: tf.pad(
         t,
-        paddings=[[0, 0], [2, 2], [2, 4], [0, 0]],
+        paddings=[[0, 0], [2, 2], [2, 5], [0, 0]],
         mode='CONSTANT',
         constant_values=10
     ))(inputs)
