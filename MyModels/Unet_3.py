@@ -36,7 +36,11 @@ def Unet(input_shape=(128, 128, 1)):
     x, skip3 = encoder_block(x, 64)        # -> (16x16)
 
     # Bottleneck
-    x = layers.Conv2D(64, 3, padding='same')(x)
+    x = layers.Conv2D(128, 3, padding='same')(x)
+    x = layers.BatchNormalization()(x)
+    x = layers.ReLU()(x)
+
+    x = layers.Conv2D(128, 3, padding='same')(x)
     x = layers.BatchNormalization()(x)
     x = layers.ReLU()(x)
 
