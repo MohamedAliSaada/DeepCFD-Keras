@@ -1,6 +1,6 @@
-# DeepCFD-Keras (Extended)
+# DeepCFD-Keras (just for learn and play with ai)
 
-This repository builds on the original DeepCFD framework by implementing additional custom model architectures and enhancements using Keras. It is structured to clearly separate reference models, custom work, and evaluation notes.
+This repository builds on the original DeepCFD framework by implementing it with custom model architectures and enhancements using Keras. It is structured to clearly separate reference models, custom work, and evaluation notes.
 
 ## 📁 Repository Structure
 
@@ -50,20 +50,6 @@ The `notes/` folder includes key result images that demonstrate model performanc
 * `OpenFoam.md`: Notes related to CFD tools or preprocessing.
 * `archi.png`, `data.png`: Architecture and dataset visualization.
 
-## 🚀 Getting Started
-
-To run your custom model:
-
-```bash
-python MyModels/deepcfdUx.py
-```
-
-To explore original implementations:
-
-```bash
-python models/autoencoder.py
-python models/unet.py
-```
 
 ## 🛠 Dependencies
 
