@@ -1,4 +1,4 @@
-# DeepCFD-Keras (just for learn and play with AI)
+# DeepCFD-Keras (Extended)
 
 This repository builds on the original DeepCFD framework by implementing additional custom model architectures and enhancements using Keras. It is structured to clearly separate reference models, custom work, and evaluation notes.
 
@@ -35,13 +35,13 @@ DeepCFD-Keras-main/
 
 ## 🧪 Results
 
-The `notes/` folder includes three key result images:
+The `notes/` folder includes key result images that demonstrate model performance:
 
-* `r1.png`
-* `r2.png`
-* `r3.png`
+* ![Result 1](notes/r1.png)
+* ![Result 2](notes/r2.png)
+* ![Result 3](notes/r3.png)
 
-These demonstrate model performance or qualitative comparisons.
+> These visuals represent qualitative outputs from different model configurations.
 
 ## 📌 Notes
 
